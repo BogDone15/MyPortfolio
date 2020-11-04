@@ -1,1 +1,169 @@
-/* No CSS *//*# sourceMappingURL=style.css.map */
+* {
+  box-sizing: border-box;
+}
+
+*::before {
+  box-sizing: border-box;
+}
+
+*::before::after {
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+@font-face {
+  font-family: 'LaBelleAurore';
+  src: url(../fonts/LaBelleAurore-Regular.ttf);
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pt Serif';
+  src: url("../fonts/PTSerif-Bold.ttf");
+  src: url("../fonts/PTSerif-Regular.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url("../fonts/OpenSans-Bold.ttf");
+  src: url("../fonts/OpenSans-Italic.ttf");
+  src: url("../fonts/OpenSans-Light.ttf");
+  src: url("../fonts/OpenSans-Regular.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  background: #1d1d1d;
+  overflow-x: hidden;
+  font-size: 15px;
+}
+
+h1 {
+  font-size: 60px !important;
+}
+
+.header {
+  width: 100%;
+}
+
+.text {
+  position: absolute;
+  left: 10%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40%;
+  max-height: 90%;
+}
+
+.text__title {
+  color: #fff;
+  font-size: 56px;
+  line-height: 53px;
+  letter-spacing: -8px;
+  font-family: 'PtSerif';
+  font-weight: 500;
+  transition: all .2s linear;
+}
+
+.text__title::before {
+  content: '<h1>';
+  font-family: 'LaBelleAurore', cursive;
+  color: #515152;
+  font-size: 18px;
+  position: absolute;
+  margin-top: -40px;
+  left: -15px;
+  letter-spacing: 0;
+}
+
+.text__title::after {
+  content: '<h1/>';
+  font-family: 'LaBelleAurore', cursive;
+  color: #515152;
+  font-size: 18px;
+  position: absolute;
+  margin-top: 18px;
+  margin-left: 20px;
+  letter-spacing: 0;
+  animation: animh1 1s 1.7s backwards;
+}
+
+.tags {
+  color: #515152;
+  position: absolute;
+  bottom: 0px;
+  left: 80px;
+  font-size: 18px;
+  font-family: 'LaBelleAurore', cursive;
+}
+
+.tags__top {
+  top: 5%;
+  bottom: auto;
+}
+
+.letter {
+  transition: all .2s linear;
+  opacity: 0;
+  display: inline-block;
+}
+
+.letter:hover {
+  color: #08fdd8;
+}
+
+.show {
+  opacity: 1;
+}
+
+.animText {
+  animation-name: animText;
+}
+
+.animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+@keyframes animText {
+  0% {
+    transform: scale3d(1, 1, 1);
+  }
+  30% {
+    transform: scale3d(1.25, 0.75, 1);
+  }
+  40% {
+    transform: scale3d(0.75, 1.25, 1);
+  }
+  50% {
+    transform: scale3d(1.15, 0.85, 1);
+  }
+  65% {
+    transform: scale3d(0.95, 1.05, 1);
+  }
+  75% {
+    transform: scale3d(1.05, 0.95, 1);
+  }
+  100% {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes animh1 {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+/*# sourceMappingURL=style.css.map */

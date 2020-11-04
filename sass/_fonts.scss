@@ -1,0 +1,36 @@
+@font-face {
+ font-family: 'LaBelleAurore';
+ src: url(../fonts/LaBelleAurore-Regular.ttf);
+ font-weight: 100;
+ font-style: normal;
+}
+
+@font-face {
+ font-family: 'Pt Serif';
+ src: url('../fonts/PTSerif-Bold.ttf');
+ src: url('../fonts/PTSerif-Regular.ttf');
+ font-weight: normal;
+ font-style: normal;
+}
+
+@font-face {
+ font-family: 'Open Sans';
+ src: url('../fonts/OpenSans-Bold.ttf');
+ src: url('../fonts/OpenSans-Italic.ttf');
+ src: url('../fonts/OpenSans-Light.ttf');
+ src: url('../fonts/OpenSans-Regular.ttf');
+ font-weight: normal;
+ font-style: normal;
+}
+
+@mixin LaBelleAurore {
+ font-family: 'LaBelleAurore', sans-serif;
+}
+
+@mixin OpenSans {
+ font-family: 'Open Sans', sans-serif;
+}
+
+@mixin PtSerif {
+ font-family: 'Pt Serif', sans-serif;
+}
