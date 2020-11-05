@@ -1,0 +1,74 @@
+.nav
+ background: #181818
+ width: 60px
+ height: 100%
+ position: fixed
+ top: 0
+ display: flex
+ flex-direction: column
+ justify-content: space-between
+ z-index: 3
+ min-height: 500px
+ &__links
+  text-align: center
+  &-item
+   opacity: 1
+  &-list::after
+   font-size: 9px
+   letter-spacing: 2px
+   position: absolute
+   bottom: 0px
+   display: block
+   width: 100%
+   text-align: center
+   opacity: 0
+   transition: all 0.3s linear
+   color: #08fdd8
+  &-list:hover .nav__links-item
+   opacity: 0
+  &-list:hover::after 
+   opacity: 1
+  &-icon
+   fill: #08fdd8
+  a
+   font-size: 20px
+   color: #a5a5a5
+   margin-bottom: 15px
+   display: block
+   line-height: 51px
+   height: 51px
+   position: relative
+   text-decoration: none  
+ &__socials
+  list-style: none
+  display: block
+  padding: 0
+  text-align: center
+  margin: 0
+  padding-bottom: 20px
+  &-link
+   padding-left: 23px
+   padding-right: 23px
+  &-list
+   padding: 7px 0
+   display: block
+   cursor: pointer
+   &:hover .nav__social-links-item
+    fill: #08fdd8
+    
+ &__logo
+  background: #070707
+  display: flex
+  justify-content: center
+  padding: 8px 0
+
+.nav .nav__links a:first-child:after
+ content: 'HOME'
+.nav .nav__links a:first-child + a:after
+ content: 'ABOUT'
+.nav .nav__links a:first-child + a + a:after
+ content: 'SKILLS'
+.nav .nav__links a:first-child + a + a + a:after
+ content: 'WORKS'
+.nav .nav__links a:first-child + a + a + a + a:after
+ content: 'CONTACT'

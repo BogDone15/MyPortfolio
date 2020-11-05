@@ -1,19 +1,37 @@
 .header
  width: 100%
+ &__winner
+  display: block
+  position: absolute
+  top: 10%
+  right: 0
+  width: 90px
+  height: 135px
+  text-indent: -666em
+  overflow: hidden
+  z-index: 999
 .text
  position: absolute
  left: 10%
  top: 50%
- transform: translateY(-50%)
+ transform: translateY(-55%)
  width: 40%
  max-height: 90%
+ h2
+  color: #8d8d8d
+  margin-top: -18px
+  font-weight: normal
+  font-size: 11px
+  font-family: "Open Sans", sans-serif
+  letter-spacing: 3px
+  animation: anim2 1s 1.8s backwards
  &__title
   color: #fff
   font-size: 56px
   line-height: 53px
   letter-spacing: -8px
   font-family: 'PtSerif'
-  font-weight: 500
+  font-weight: 600
   transition: all .2s linear
   &::before
    content: '<h1>'
@@ -37,7 +55,7 @@
 .tags
  color: #515152
  position: absolute
- bottom: 0px
+ bottom: 5%
  left: 80px
  font-size: 18px
  font-family: 'LaBelleAurore', cursive
@@ -48,8 +66,20 @@
  transition: all .2s linear
  opacity: 0
  display: inline-block
+ &__big
+  font-size: 56px
+  font-family: 'PtSerif'
+  font-weight: 600
+  -webkit-text-stroke: 2px #188118
+  -webkit-text-fill-color: #08fdd8
  &:hover
   color: #08fdd8
+
+.btn
+  @include btn()
+  &:hover
+    background-color: #08fdd8
+    color: #515152
   
 .show
  opacity: 1
@@ -82,4 +112,10 @@
   opacity: 0
  100%
   opacity: 1
+
+@keyframes anim2 
+  0% 
+    opacity: 0
+  100% 
+    opacity: 1
 
