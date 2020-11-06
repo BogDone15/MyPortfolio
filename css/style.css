@@ -72,6 +72,7 @@ ul, li {
 }
 
 .header {
+  height: 100vh;
   width: 100%;
 }
 
@@ -351,5 +352,50 @@ ul, li {
 
 .nav .nav__links a:first-child + a + a + a + a:after {
   content: 'CONTACT';
+}
+
+.about {
+  height: 100vh;
+}
+
+.about h1 {
+  position: relative;
+  color: #08fdd8;
+}
+
+.about .text__title::after {
+  left: -34px;
+  bottom: -50px;
+  animation: none;
+}
+
+.about p {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 20px;
+}
+
+.skills {
+  height: 100vh;
+}
+
+.skills h1 {
+  position: relative;
+  letter-spacing: 0;
+  color: #08fdd8;
+}
+
+.skills .text__title::after {
+  left: -34px;
+  bottom: -50px;
+  animation: none;
+}
+
+.skills p {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 20px;
 }
 /*# sourceMappingURL=style.css.map */
