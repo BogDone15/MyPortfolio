@@ -1,0 +1,60 @@
+.contact
+ height: 100vh
+ .text
+  width: 30%
+ h1 
+  position: relative
+  color: $primary-color
+  margin-bottom: 61px
+ .text__title::after
+  left: -34px
+  bottom: -50px
+  animation: none
+ p
+  color: #ffffff
+  font-size: 14px
+  font-weight: 300
+  line-height: 20px
+
+.contact__form 
+ width: 100%
+ &-half
+  width: 49%
+  display: block
+  margin-bottom: 20px
+  position: relative
+ &-list
+  width: 100%
+  display: flex
+  justify-content: space-between
+  flex-wrap: wrap
+ &-area
+  position: relative
+  width: 100%
+ &-textarea
+  @include input
+  padding: 10px
+  min-height: 150px
+  resize: none
+  border-bottom: 2px solid transparent
+  &:focus 
+    border-bottom: 2px solid $primary-color
+ &-input
+  @include input
+  padding: 0 10px
+  -webkit-text-fill-color: #9E9E9E
+  -webkit-box-shadow: 0 0 0px 1000px transparent inset
+  transition: background-color 5000s ease-in-out 0s
+  border-bottom: 2px solid transparent
+  &:focus 
+    border-bottom: 2px solid $primary-color
+
+.request-btn
+  @include btn-request
+  &:hover
+    background-color: $primary-color
+    color: $tag-color
+
+// .map
+//   float: right
+//   width: 60%
