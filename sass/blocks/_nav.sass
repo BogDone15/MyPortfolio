@@ -23,13 +23,13 @@
    text-align: center
    opacity: 0
    transition: all 0.3s linear
-   color: #08fdd8
+   color: $primary-color
   &-list:hover .nav__links-item
    opacity: 0
   &-list:hover::after 
    opacity: 1
   &-icon
-   fill: #08fdd8
+   fill: $primary-color
   a
    font-size: 20px
    color: #a5a5a5
@@ -39,6 +39,7 @@
    height: 51px
    position: relative
    text-decoration: none  
+   cursor: pointer
  &__socials
   list-style: none
   display: block
@@ -54,7 +55,7 @@
    display: block
    cursor: pointer
    &:hover .nav__social-links-item
-    fill: #08fdd8
+    fill: $primary-color
     
  &__logo
   background: #070707

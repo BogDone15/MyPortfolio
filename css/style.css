@@ -123,7 +123,7 @@ li {
 }
 
 .text__title {
-  color: #fff;
+  color: #ffffff;
   font-size: 56px;
   line-height: 53px;
   letter-spacing: -8px;
@@ -316,6 +316,7 @@ li {
   height: 51px;
   position: relative;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .nav__socials {
@@ -394,6 +395,7 @@ li {
   font-size: 14px;
   font-weight: 300;
   line-height: 20px;
+  animation: anim2 1s .4s backwards;
 }
 
 .skills {
@@ -418,6 +420,17 @@ li {
   font-weight: 300;
   line-height: 20px;
   width: 80%;
+  animation: anim2 1s .3s backwards;
+}
+
+.skills p a {
+  color: #08fdd8;
+  text-decoration: underline;
+  transition: color .2s linear;
+}
+
+.skills p a:hover {
+  color: #ffffff;
 }
 
 .contact {
@@ -445,6 +458,7 @@ li {
   font-size: 14px;
   font-weight: 300;
   line-height: 20px;
+  animation: anim2 1s .4s backwards;
 }
 
 .contact__form {
@@ -547,20 +561,87 @@ li {
   margin-left: 60px;
 }
 
+.works__wrap-title {
+  color: #08fdd8;
+  text-align: center;
+  font-size: 17px;
+}
+
+.works__wrap-description {
+  margin-top: 18px;
+  color: #ffffff;
+  text-align: center;
+  font-size: 17px;
+}
+
+.works__wrap-content {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  width: 100%;
+  opacity: 0;
+}
+
+.works__wrap-buttons {
+  text-align: center;
+}
+
+.works__wrap-btn {
+  display: inline-block;
+  color: #2b2b2b;
+  font-size: 11px;
+  letter-spacing: 3px;
+  font-family: "OpenSans", sans-serif;
+  text-decoration: none;
+  padding: 8px 10px;
+  border: 1px solid #08fdd8;
+  border-radius: 4px;
+  background: #08fdd8;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 20px;
+  margin-right: 10px;
+  cursor: pointer;
+  outline: none;
+  transition: all .2s linear;
+}
+
+.works__wrap-btn:hover {
+  background: transparent;
+  color: #08fdd8;
+}
+
+.works__wrap-btn:nth-child(2) {
+  margin-right: 0;
+}
+
 .works__wrap-item {
+  position: relative;
   width: 16.6666666667%;
   height: 25%;
-  opacity: .5;
   overflow: hidden;
+  border: 2px inset none;
+  transition: transform opacity .2s linear;
+}
+
+.works__wrap-item:hover {
+  border: 2px inset #08fdd8;
+}
+
+.works__wrap-item:hover img {
+  transform: scale(1.2);
+  opacity: .4;
+}
+
+.works__wrap-item:hover .works__wrap-content {
+  opacity: 1;
 }
 
 .works__wrap-img {
-  height: 100%;
-}
-
-.works__wrap-img-image {
   display: block;
   width: 100%;
   height: 100%;
+  transition: all .2s linear;
 }
 /*# sourceMappingURL=style.css.map */
