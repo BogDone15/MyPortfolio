@@ -1,6 +1,25 @@
 document.addEventListener("DOMContentLoaded", function (event) {
 	const letter = document.querySelectorAll('.letter');
-	const canvasSkills = document.querySelector('#canvas__skills')
+	const canvasSkills = document.querySelector('#canvas__skills');
+	const navLinks = document.querySelector('.nav__links');
+	const navSocials = document.querySelector('.nav__socials');
+	const burger = document.querySelector('.burger');
+
+	burger.addEventListener('click', () => {
+		navLinks.classList.toggle('show__links');
+		navSocials.classList.toggle('show__socials');
+	});
+
+	// active class
+// let links = document.querySelectorAll('.nav__links-item');
+
+// links.forEach(link => {
+//   link.addEventListener('click', function() {
+// 				links.forEach(l => l.classList.remove('active'));
+//     this.classList.add('active');
+//   });
+// });
+
 
 	letter.forEach((el, i) => {
 		setTimeout(() => {
@@ -19,6 +38,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
 			}, 1000);
 		})
 	});
+
+
 
 	const canvas = document.getElementById('canvas');
 
