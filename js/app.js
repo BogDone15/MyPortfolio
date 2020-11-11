@@ -33,10 +33,10 @@ document.addEventListener("DOMContentLoaded", function () {
 					form.classList.remove('_sending');
 				} else {
 					alert('Error');
+					form.classList.remove('_sending');
 				}
 			} else {
 				alert('Fill all inputs');
-				form.classList.remove('_sending');
 			}
 		}
 	
