@@ -4,22 +4,41 @@ document.addEventListener("DOMContentLoaded", function (event) {
 	const navLinks = document.querySelector('.nav__links');
 	const navSocials = document.querySelector('.nav__socials');
 	const burger = document.querySelector('.burger');
+	const formHalf = document.querySelectorAll('.contact__form-half');
+	const formArea = document.querySelector('.contact__form-area');
+	const reqBtn = document.querySelector('.request-btn');
 
-	burger.addEventListener('click', () => {
+	if (reqBtn) {
+		reqBtn.classList.add('fadeIn', 'animated');
+	}
+
+	if (formHalf) {
+		formHalf.forEach(form => {
+			form.classList.add('fadeIn', 'animated');
+		})	
+	}
+
+	if (formArea) {
+		formArea.classList.add('fadeIn', 'animated');
+	}
+
+	burger.addEventListener('click', (e) => {
 		navLinks.classList.toggle('show__links');
 		navSocials.classList.toggle('show__socials');
 	});
 
 	// active class
-// let links = document.querySelectorAll('.nav__links-item');
+	// let lists = document.querySelectorAll('.nav__links-list');
+	// let links = document.querySelectorAll('.nav__links-item');
 
-// links.forEach(link => {
-//   link.addEventListener('click', function() {
+
+
+// 	links.forEach(link => {
+// 		link.addEventListener('click', function() {
 // 				links.forEach(l => l.classList.remove('active'));
-//     this.classList.add('active');
-//   });
+// 				this.classList.add('active');
+// 		});
 // });
-
 
 	letter.forEach((el, i) => {
 		setTimeout(() => {
