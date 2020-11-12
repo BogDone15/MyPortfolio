@@ -1072,6 +1072,7 @@ li {
   top: 50%;
   width: 100%;
   opacity: 0;
+  pointer-events: none;
 }
 
 .works__wrap-buttons {
@@ -1127,6 +1128,7 @@ li {
 
 .works__wrap-item:hover .works__wrap-content {
   opacity: 1;
+  pointer-events: auto;
 }
 
 .works__wrap-img {
