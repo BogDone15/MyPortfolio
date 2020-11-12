@@ -8,46 +8,54 @@ document.addEventListener("DOMContentLoaded", function () {
 	const formArea = document.querySelector('.contact__form-area');
 	const reqBtn = document.querySelector('.request-btn');
 	const form = document.querySelector('#form');
+	const logError = document.querySelector('.log__error-wrap');
+	const failedError = document.querySelector('.failed__error');
 
 	if (form) {
 		form.addEventListener('submit', formSend);
-
+	}
 		async function formSend(e) {
 			e.preventDefault();
-	
+
 			let error = formValidate(form);
-	
+
 			let formData = new FormData(form);
-	
+
 			if (error === 0) {
 				form.classList.add('_sending');
 				let response = await fetch('sendmail.php', {
 					method: 'POST',
 					body: formData
 				});
-	
+
 				if (response.ok) {
 					let result = await response.json();
 					alert(result.message);
 					form.reset();
 					form.classList.remove('_sending');
 				} else {
-					alert('Error');
+					failedError.classList.add('error__show');
+					setTimeout(() => {
+						failedError.classList.remove('error__show');
+					}, 3000);
 					form.classList.remove('_sending');
 				}
 			} else {
-				alert('Fill all inputs');
+				logError.classList.add('error__show');
+				setTimeout(() => {
+					logError.classList.remove('error__show');
+				}, 3000);
 			}
 		}
-	
+
 		function formValidate() {
 			let error = 0;
 			let formReq = document.querySelectorAll('._req');
-	
+
 			for (let index = 0; index < formReq.length; index++) {
 				const input = formReq[index];
 				formRemoveError(input);
-	
+
 				if (input.classList.contains('_email')) {
 					if (emailTest(input)) {
 						formAddError(input);
@@ -62,23 +70,23 @@ document.addEventListener("DOMContentLoaded", function () {
 			}
 			return error;
 		}
-	
+
 		function formAddError(input) {
 			input.parentElement.classList.add('_error');
 			input.classList.add('_error');
 		}
-	
+
 		function formRemoveError(input) {
 			input.parentElement.classList.remove('_error');
 			input.classList.remove('_error');
 		}
-	
+
 		function emailTest(input) {
 			return !/^[-\w.]+@([A-z0-9][-A-z0-9]+\.)+[A-z]{2,4}$/.test(input.value);
 		}
+
+
 	
-	
-	}
 
 	if (reqBtn) {
 		reqBtn.classList.add('fadeIn', 'animated');
@@ -87,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	if (formHalf) {
 		formHalf.forEach(form => {
 			form.classList.add('fadeIn', 'animated');
-		})	
+		})
 	}
 
 	if (formArea) {
@@ -105,12 +113,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-// 	links.forEach(link => {
-// 		link.addEventListener('click', function() {
-// 				links.forEach(l => l.classList.remove('active'));
-// 				this.classList.add('active');
-// 		});
-// });
+	// 	links.forEach(link => {
+	// 		link.addEventListener('click', function() {
+	// 				links.forEach(l => l.classList.remove('active'));
+	// 				this.classList.add('active');
+	// 		});
+	// });
 
 	letter.forEach((el, i) => {
 		setTimeout(() => {
