@@ -1097,6 +1097,7 @@ li {
   cursor: pointer;
   outline: none;
   transition: all .2s linear;
+  pointer-events: none;
 }
 
 .works__wrap-btn:hover {
@@ -1119,6 +1120,10 @@ li {
 
 .works__wrap-item:hover {
   border: 2px inset #08fdd8;
+}
+
+.works__wrap-item:hover .works__wrap-btn {
+  pointer-events: auto;
 }
 
 .works__wrap-item:hover img {

@@ -28,6 +28,7 @@
      text-align: center
   &-btn
      @include works-links
+     pointer-events: none
      &:hover
         background: transparent
         color: $primary-color
@@ -42,6 +43,8 @@
    transition: transform opacity .2s linear
    &:hover
       border: 2px inset $primary-color
+   &:hover .works__wrap-btn
+      pointer-events: auto
    &:hover img
       transform: scale(1.2)
       opacity: .4
