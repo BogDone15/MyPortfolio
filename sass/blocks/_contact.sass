@@ -112,9 +112,7 @@
     span
       color: $primary-color
 
-
-
-.log__error-wrap, .failed__error
+.log__error-wrap, .failed__error,
   font-size: 14px
   color: #ffffff
   background: rgba(254, 26, 0, .9)
@@ -127,6 +125,21 @@
   width: 300px
   transform: translateX(150%)
   transition: all .4s linear    
+
+.message__complete
+  font-size: 14px
+  color: #ffffff
+  background: rgba(254, 26, 0, .9)
+  padding: 15px
+  border-radius: 4px
+  text-shadow: -1px -1px 0 rgba(0, 0, 0, .5)
+  position: fixed
+  right: 10px
+  bottom: 30px
+  width: 300px
+  transform: translateX(150%)
+  transition: all .4s linear    
+  background: rgba(0, 0, 0, .9) !important
 
 .error__show
   transform: translateX(0)

@@ -10,83 +10,93 @@ document.addEventListener("DOMContentLoaded", function () {
 	const form = document.querySelector('#form');
 	const logError = document.querySelector('.log__error-wrap');
 	const failedError = document.querySelector('.failed__error');
+	const messageComplete = document.querySelector('.message__complete');
 
 	if (form) {
 		form.addEventListener('submit', formSend);
 	}
-		async function formSend(e) {
-			e.preventDefault();
+	async function formSend(e) {
+		e.preventDefault();
 
-			let error = formValidate(form);
+		let error = formValidate(form);
 
-			let formData = new FormData(form);
+		let formData = new FormData(form);
 
-			if (error === 0) {
+		if (error === 0) {
+			form.classList.add('_sending');
+			let response = await fetch('sendmail.php', {
+				method: 'POST',
+				body: formData
+			});
+
+			if (response.ok) {
+				let result = await response.json();
+				messageComplete.classList.add('error__show');
+				setTimeout(() => {
+					messageComplete.classList.remove('error__show');
+				}, 3000);
+				form.reset();
+				form.classList.remove('_sending');
+			} else {
 				form.classList.add('_sending');
-				let response = await fetch('sendmail.php', {
-					method: 'POST',
-					body: formData
-				});
+				setTimeout(() => {
+					messageComplete.classList.add('error__show');
+				}, 3000);
+				setTimeout(() => {
+					messageComplete.classList.remove('error__show');
+				}, 7000);
+				setTimeout(() => {
+					form.classList.remove('_sending');
+				}, 3000);
+				form.reset();
+			}
+		} else {
+			logError.classList.add('error__show');
+			setTimeout(() => {
+				logError.classList.remove('error__show');
+			}, 3000);
+		}
+	}
 
-				if (response.ok) {
-					let result = await response.json();
-					alert(result.message);
-					form.reset();
-					form.classList.remove('_sending');
-				} else {
-					failedError.classList.add('error__show');
-					setTimeout(() => {
-						failedError.classList.remove('error__show');
-					}, 3000);
-					form.classList.remove('_sending');
+	function formValidate() {
+		let error = 0;
+		let formReq = document.querySelectorAll('._req');
+
+		for (let index = 0; index < formReq.length; index++) {
+			const input = formReq[index];
+			formRemoveError(input);
+
+			if (input.classList.contains('_email')) {
+				if (emailTest(input)) {
+					formAddError(input);
+					error++;
 				}
 			} else {
-				logError.classList.add('error__show');
-				setTimeout(() => {
-					logError.classList.remove('error__show');
-				}, 3000);
-			}
-		}
-
-		function formValidate() {
-			let error = 0;
-			let formReq = document.querySelectorAll('._req');
-
-			for (let index = 0; index < formReq.length; index++) {
-				const input = formReq[index];
-				formRemoveError(input);
-
-				if (input.classList.contains('_email')) {
-					if (emailTest(input)) {
-						formAddError(input);
-						error++;
-					}
-				} else {
-					if (input.value === '') {
-						formAddError(input);
-						error++;
-					}
+				if (input.value === '') {
+					formAddError(input);
+					error++;
 				}
 			}
-			return error;
 		}
+		return error;
+	}
 
-		function formAddError(input) {
-			input.parentElement.classList.add('_error');
-			input.classList.add('_error');
-		}
+	function formAddError(input) {
+		input.parentElement.classList.add('_error');
+		input.classList.add('_error');
+	}
 
-		function formRemoveError(input) {
-			input.parentElement.classList.remove('_error');
-			input.classList.remove('_error');
-		}
+	function formRemoveError(input) {
+		input.parentElement.classList.remove('_error');
+		input.classList.remove('_error');
+	}
 
-		function emailTest(input) {
-			return !/^[-\w.]+@([A-z0-9][-A-z0-9]+\.)+[A-z]{2,4}$/.test(input.value);
-		}
+	function emailTest(input) {
+		return !/^[-\w.]+@([A-z0-9][-A-z0-9]+\.)+[A-z]{2,4}$/.test(input.value);
+	}
 
 
-	
+
 
 	if (reqBtn) {
 		reqBtn.classList.add('fadeIn', 'animated');
@@ -107,19 +117,6 @@ document.addEventListener("DOMContentLoaded", function () {
 		navSocials.classList.toggle('show__socials');
 	});
 
-	// active class
-	// let lists = document.querySelectorAll('.nav__links-list');
-	// let links = document.querySelectorAll('.nav__links-item');
-
-
-
-	// 	links.forEach(link => {
-	// 		link.addEventListener('click', function() {
-	// 				links.forEach(l => l.classList.remove('active'));
-	// 				this.classList.add('active');
-	// 		});
-	// });
-
 	letter.forEach((el, i) => {
 		setTimeout(() => {
 			el.classList.add('show');
@@ -138,15 +135,13 @@ document.addEventListener("DOMContentLoaded", function () {
 		})
 	});
 
-
-
 	const canvas = document.getElementById('canvas');
 
 	if (canvas) {
 		const c = canvas.getContext('2d');
 
 		c.strokeStyle = '#e3e3e3';
-		//Declare vars t:time, i:eased function of time, steps:num of steps per revolution
+
 		let t = 0;
 		let i = 0;
 		let steps = 200;
@@ -166,12 +161,10 @@ document.addEventListener("DOMContentLoaded", function () {
 			let e = 0;
 			let z = 0;
 
-			//easing function on time using cosine wave
 			let i = -(Math.cos(Math.PI / steps * t) + 1) / 2;
 
-			//get value between 0 and 2 Pi proportional to i
 			i *= Math.PI * 2;
-			//define values for point using wavey waves
+
 			x = Math.sin(i) * 100;
 			y = Math.cos(i) * 100;
 
@@ -184,7 +177,6 @@ document.addEventListener("DOMContentLoaded", function () {
 			e = -Math.sin(-i) * 100;
 			z = -Math.cos(-i) * 100;
 
-			//centre the point
 			x += 150;
 			y += 250;
 
@@ -197,11 +189,9 @@ document.addEventListener("DOMContentLoaded", function () {
 			e += 350;
 			z += 250;
 
-			//clear current thing with a bit of a motion blur
 			c.clearRect(0, 0, 500, 500);
 			c.fillStyle = 'white';
 
-			//draw circle
 			c.beginPath();
 
 			c.arc(150, 250, 100, 0, Math.PI * 2);
@@ -212,7 +202,6 @@ document.addEventListener("DOMContentLoaded", function () {
 			c.arc(350, 250, 100, 0, Math.PI * 2);
 			c.stroke();
 
-			//draw point
 			c.beginPath();
 			c.arc(x, y, 8, 0, Math.PI * 2);
 			c.fill();

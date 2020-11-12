@@ -11,9 +11,8 @@ $mail->setLanguage('ru', 'phpmailer/language/');
 $mail->IsHTML(true);
 
 //Recipients
-$mail->setFrom('from@example.com', 'Mailer');
+$mail->setFrom('Bodia1995@ukr.net', 'Mailer');
 $mail->addAddress('buselb2@gmail.com');     // Add a recipient
-$mail->Subject('Hello, its me');               // Name is optional
 
 $body = '<h1>Встречайте письмо!</h1>';
 
@@ -23,8 +22,8 @@ if(trim(!empty($_POST['name']))) {
 if(trim(!empty($_POST['email']))) {
  $body.='<p><strong>E-mail:</strong> '.$_POST['email'].'</p>';
 }
-if(trim(!empty($_POST['teatarea']))) {
- $body.='<p><strong>Message:</strong> '.$_POST['teatarea'].'</p>';
+if(trim(!empty($_POST['textarea']))) {
+ $body.='<p><strong>Message:</strong> '.$_POST['textarea'].'</p>';
 }
 
 $mail->Body = $body;
