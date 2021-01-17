@@ -19,6 +19,13 @@ li
  padding: 0
  margin: 0
 
+#animation 
+  position: absolute
+  right: 8%
+  top: 50%
+  transform: translateY(-50%)
+
+
 #canvas 
  display: block
  position: absolute
@@ -34,12 +41,16 @@ li
  transform: translateY(-50%)
 
 @media ( max-width: 1199px )
+ #animation
+  right: 0
  #canvas 
   right: 1%
   #canvas__skills
     right: 0
  
 @media ( max-width: 991px )
+ #animation
+  display: none
  #canvas 
   display: none
  #canvas__skills

@@ -69,6 +69,14 @@ li {
   margin: 0;
 }
 
+#animation {
+  position: absolute;
+  right: 8%;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
 #canvas {
   display: block;
   position: absolute;
@@ -88,6 +96,9 @@ li {
 }
 
 @media (max-width: 1199px) {
+  #animation {
+    right: 0;
+  }
   #canvas {
     right: 1%;
   }
@@ -97,6 +108,9 @@ li {
 }
 
 @media (max-width: 991px) {
+  #animation {
+    display: none;
+  }
   #canvas {
     display: none;
   }
